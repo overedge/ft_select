@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC_NAME = main.c
+SRC_NAME = main.c utils.c
 
 NAME = ft_select
 
@@ -20,7 +20,7 @@ $(NAME) :
 	@make fclean -C libft/ && make -C libft/
 	@cp libft/libft.a .
 	@gcc -c -Wall -Werror -Wextra $(SRC_NAME)
-	@gcc $(OBJ_NAME) -o $(NAME) -L. -lft
+	@gcc $(OBJ_NAME) -o $(NAME) -L. -lft -ltermcap
 	@echo "\033[1;34m ----FT_SELECT---- :\033[m \033[1;32m DONE !\033[m"
 
 all : $(NAME)
