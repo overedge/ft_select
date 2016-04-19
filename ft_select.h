@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:44:42 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/19 00:17:15 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/19 20:19:39 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <term.h>
 # include <curses.h>
 # include <stdlib.h>
-
+# include <unistd.h>
 
 # define UP 4283163
 # define DOWN 4348699
@@ -29,11 +29,32 @@
 # define ESC 27
 # define BACKSPACE 127
 # define DELETE 2117294875
+
+typedef struct s_select
+{
+	char *name;
+	char selected;
+	char hover;
+	struct s_select *next;
+}				t_select;
+
 /*
 ** Utils
 */
-void error(char *str);
+void		error(char *str);
+void		arg_to_list(int argc, char **argv, t_select **begin_list);
+void		push_list_back(t_select **begin_list, char *name);
+int			ft_outc(int c);
 
+/*
+** TERM
+*/
+void		init_term(t_select **begin_list);
 
-
+/*
+** ACTIONS
+*/
+void		move_top(t_select **begin_list);
+void		move_bot(t_select **begin_list);
+void		selected(t_select **begin_list);
 #endif
