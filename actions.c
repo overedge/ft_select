@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 17:35:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/20 18:52:10 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/21 23:20:46 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,6 @@ void		return_selected(t_select **begin_list)
 
 void del_elem(t_select **begin_list)
 {
-	ft_printf("fefe");
-	ft_printf("fefe");
-	ft_printf("fefe");
 	t_select *tmp;
 	t_select *tmp2;
 
@@ -102,6 +99,8 @@ void del_elem(t_select **begin_list)
 		tmp = tmp->next;
 	}
 	tmp2->next = tmp->next;
+	if (tmp == *begin_list)
+		*begin_list = tmp->next;
 	free(tmp);
 	tmp = tmp2->next;
 	tmp->hover = 1;

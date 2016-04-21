@@ -6,11 +6,11 @@
 #    By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/03 19:34:07 by nahmed-m          #+#    #+#              #
-#*   Updated: 2016/03/12 23:15:16 by nahmed-m         ###   ########.fr       *#
+#*   Updated: 2016/04/21 23:39:09 by nahmed-m         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
-SRC_NAME = main.c utils.c term.c actions.c
+SRC_NAME = main.c utils.c term.c actions.c signal.c
 
 NAME = ft_select
 

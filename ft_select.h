@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:44:42 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/20 17:58:41 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/21 23:42:22 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <curses.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 # define UP 4283163
 # define DOWN 4348699
@@ -51,6 +52,7 @@ int			list_len(t_select **begin_list);
 ** TERM
 */
 void		init_term(t_select **begin_list);
+int			get_fd();
 
 /*
 ** ACTIONS
@@ -60,4 +62,9 @@ void		move_bot(t_select **begin_list);
 void		selected(t_select **begin_list);
 void		return_selected(t_select **begin_list);
 void		del_elem(t_select **begin_list);
+
+/*
+** SIGNAL
+*/
+void		signal_catcher();
 #endif

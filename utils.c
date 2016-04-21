@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:44:30 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/20 18:00:54 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/21 22:44:18 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_select.h"
@@ -74,6 +74,6 @@ int	list_len(t_select **begin_list)
 
 int		ft_outc(int c)
 {
-	ft_putchar(c);
+	ft_putchar_fd(c, get_fd());
 	return (1);
 }

@@ -6,17 +6,10 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:08:28 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/20 18:52:11 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/21 23:43:50 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_select.h"
-
-
-void	sig_quit(int sig)
-{
-	ft_printf("signal\n");
-	ft_printf("signal\n");
-}
 
 void	keyboard(t_select **begin_list, int keycode)
 {
@@ -38,23 +31,14 @@ int		main(int argc, char **argv)
 {
 	char				buffer[4];
 	int					keycode;
-	
-	t_select				*begin_list;
+	t_select			*begin_list;
 
 	if (argc == 1)
 		error("This software need arguments");
 	arg_to_list(argc, argv, &begin_list);
 	init_term(&begin_list);
 	keycode = 0;
-//	signal(SIGCONT, sig_quit); // REPRISE CRTL Z
-//	signal(SIGINT, sig_quit); // CRTL + C
-//	signal(SIGSTOP, sig_quit);
-//	signal(SIGTERM, sig_quit);
-//	signal(SIGKILL, sig_quit);
-//	signal(SIGUSR2, sig_quit);
-//	signal(SIGUSR1, sig_quit);
-//	signal(SIGQUIT, sig_quit);
-//	signal(SIGWINCH, sig_quit); // taille fenetre 
+	signal_catcher();
 	while (1)
 	{
 		bzero(&buffer, 4);

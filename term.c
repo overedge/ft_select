@@ -6,11 +6,22 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 17:06:18 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/19 20:07:55 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/21 23:42:42 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
+
+int	get_fd()
+{
+	static int fd;
+
+	if (fd)
+		return (fd);
+	else
+		fd = open(ttyname(STDIN_FILENO), O_WRONLY);
+	return (fd);
+}
 
 void		print_args(t_select **begin_list)
 {
@@ -44,7 +55,7 @@ void		init_term(t_select **begin_list)
 	term_infos.c_lflag &= ~(ECHO);
 	term_infos.c_cc[VMIN] = 1;
 	term_infos.c_cc[VTIME] = 0;
-	tcsetattr(0, TCSAFLUSH, &term_infos);
+	tcsetattr(0, TCSADRAIN, &term_infos);
 	tputs(tgetstr("cl", NULL), 0, ft_outc);
 	tputs(tgetstr("vi", NULL), 0, ft_outc);
 	print_args(begin_list);
