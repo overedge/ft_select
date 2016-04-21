@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:44:42 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/19 20:19:39 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/20 17:58:41 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void		error(char *str);
 void		arg_to_list(int argc, char **argv, t_select **begin_list);
 void		push_list_back(t_select **begin_list, char *name);
 int			ft_outc(int c);
+int			list_len(t_select **begin_list);
 
 /*
 ** TERM
@@ -57,4 +58,6 @@ void		init_term(t_select **begin_list);
 void		move_top(t_select **begin_list);
 void		move_bot(t_select **begin_list);
 void		selected(t_select **begin_list);
+void		return_selected(t_select **begin_list);
+void		del_elem(t_select **begin_list);
 #endif

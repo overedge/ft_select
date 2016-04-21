@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:44:30 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/19 19:42:24 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/20 18:00:54 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_select.h"
@@ -52,6 +52,24 @@ void push_list_back(t_select **begin_list, char *name)
 	new->hover = 0;
 	new->next = *begin_list;
 	tmp->next = new;
+}
+
+int	list_len(t_select **begin_list)
+{
+	int			i;
+	int			j;
+	t_select	*tmp;
+
+	i = 0;
+	j = 0;
+	tmp = *begin_list;
+	while (tmp != *begin_list || j == 0)
+	{
+		j = 1;
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
 }
 
 int		ft_outc(int c)

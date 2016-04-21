@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 17:35:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/19 20:07:56 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/20 18:52:10 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,54 @@ void		selected(t_select **begin_list)
 	else
 		tmp->selected = 1;
 	tmp = tmp->next;
+	tmp->hover = 1;
+	init_term(begin_list);
+}
+
+void		return_selected(t_select **begin_list)
+{
+	t_select	*tmp;
+	int			i;
+	int			j;
+
+	tmp = *begin_list;
+	j = 0;
+	i = 0;
+	tputs(tgetstr("cl", NULL), 0, ft_outc);
+	while (tmp != *begin_list || j == 0)
+	{
+		j = 1;
+		if (tmp->selected == 1)
+		{
+			i == 0 ? i = 1 : ft_putchar(' ');
+			ft_printf("%s", tmp->name);
+		}
+		tmp = tmp->next;
+	}
+	exit(EXIT_SUCCESS);
+}
+
+void del_elem(t_select **begin_list)
+{
+	ft_printf("fefe");
+	ft_printf("fefe");
+	ft_printf("fefe");
+	t_select *tmp;
+	t_select *tmp2;
+
+	tmp = *begin_list;
+	tmp2 = *begin_list;
+	tmp = tmp->next;
+	if (list_len(begin_list) == 1)
+		exit(EXIT_SUCCESS);
+	while (tmp->hover == 0)
+	{
+		tmp2 = tmp2->next;
+		tmp = tmp->next;
+	}
+	tmp2->next = tmp->next;
+	free(tmp);
+	tmp = tmp2->next;
 	tmp->hover = 1;
 	init_term(begin_list);
 }
