@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:08:28 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/21 23:43:50 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/22 18:12:31 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_select.h"
@@ -41,10 +41,11 @@ int		main(int argc, char **argv)
 	signal_catcher();
 	while (1)
 	{
-		bzero(&buffer, 4);
+		ft_bzero(&buffer, 4);
 		read(1, &buffer, 4);
 		keycode = (buffer[3] << 24) + (buffer[2] << 16) + (buffer[1] << 8) + buffer[0];
 		keyboard(&begin_list, keycode);
 	}
+	return (0);
 }
 
