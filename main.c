@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:08:28 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/23 18:19:01 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/24 00:00:59 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_select.h"
@@ -20,12 +20,13 @@ void	keyboard(t_select **begin_list, int keycode)
 		else if (keycode == SPACE)
 			selected(begin_list);
 		else if (keycode == ESC)
-			exit(EXIT_SUCCESS);
+			ft_return(0);
 		else if (keycode == RETURN)
 			return_selected(begin_list);
 		else if (keycode == DELETE || keycode == BACKSPACE)
 			del_elem(begin_list);
 }
+
 
 int		main(int argc, char **argv)
 {
@@ -36,6 +37,7 @@ int		main(int argc, char **argv)
 	if (argc == 1)
 		error("This software need arguments");
 	arg_to_list(argc, argv, &begin_list);
+	get_old_configuration();
 	init_term(&begin_list);
 	keycode = 0;
 	signal_catcher();

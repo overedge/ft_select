@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 17:35:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/21 23:20:46 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/23 18:41:33 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void		return_selected(t_select **begin_list)
 		}
 		tmp = tmp->next;
 	}
-	exit(EXIT_SUCCESS);
+	ft_return(0);
 }
 
 void del_elem(t_select **begin_list)
@@ -92,7 +92,7 @@ void del_elem(t_select **begin_list)
 	tmp2 = *begin_list;
 	tmp = tmp->next;
 	if (list_len(begin_list) == 1)
-		exit(EXIT_SUCCESS);
+		ft_return(0);
 	while (tmp->hover == 0)
 	{
 		tmp2 = tmp2->next;

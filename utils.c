@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:44:30 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/21 22:44:18 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/23 18:44:53 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_select.h"
@@ -14,7 +14,7 @@
 void error(char *str)
 {
 	ft_printf("%s\n", str);
-	exit(EXIT_FAILURE);
+	ft_return(0);
 }
 
 void arg_to_list(int argc, char **argv, t_select **begin_list)

@@ -6,11 +6,23 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 17:06:18 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/23 18:19:02 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/24 00:02:00 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
+
+struct termios	get_old_configuration(void)
+{
+	static struct		termios old;
+	char				*term_name;
+
+	if ((term_name = getenv("TERM")) == NULL)
+		error("Failed to get TERM in your Environement");
+	tgetent(NULL, term_name);
+	tcgetattr(0, &old);
+	return (old);
+}
 
 int	get_fd()
 {

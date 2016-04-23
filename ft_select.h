@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:44:42 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/21 23:42:22 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/23 18:54:27 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int			list_len(t_select **begin_list);
 */
 void		init_term(t_select **begin_list);
 int			get_fd();
-
+struct termios get_old_configuration(void);
 /*
 ** ACTIONS
 */
@@ -67,4 +67,5 @@ void		del_elem(t_select **begin_list);
 ** SIGNAL
 */
 void		signal_catcher();
+void		ft_return(int sig);
 #endif
