@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 23:38:26 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/24 00:02:22 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/24 00:19:26 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ void	signal_catcher()
 
 	i = 0;
 //	signal(SIGCONT, sig_quit); // REPRISE CRTL Z
-//	signal(SIGINT, sig_quit); // CRTL + C
 //	signal(SIGWINCH, sig_quit); // taille fenetre
 	while (i < 32)
 	{
-		if (i != SIGCONT && i != SIGINT && i != SIGWINCH)
+		if (i != SIGCONT  && i != SIGWINCH)
 			signal(i, ft_return);
 		i++;
 	}
