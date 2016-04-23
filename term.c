@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 17:06:18 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/22 18:12:30 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/23 18:19:02 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void		print_args(t_select **begin_list)
 	tmp = *begin_list;
 	while (tmp != *begin_list || j == 0)
 	{
-		j == 0 ? j = 1 : ft_putchar('\n');
+		j == 0 ? j = 1 : ft_putchar_fd('\n', get_fd());
 		tmp->hover == 1 ? tputs(tgetstr("us", NULL), 0, ft_outc) : 0;
 		tmp->selected == 1 ? tputs(tgetstr("mr", NULL), 0, ft_outc) : 0;
-		ft_printf("%s", tmp->name);
+		ft_putstr_fd(tmp->name, get_fd());
 		tmp->hover == 1 ? tputs(tgetstr("ue", NULL), 0, ft_outc) : 0;
 		tmp->selected == 1 ? tputs(tgetstr("se", NULL), 0, ft_outc) : 0;
 		tmp = tmp->next;
