@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:44:42 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/23 18:54:27 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/24 02:35:22 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <sys/ioctl.h>
 
 # define UP 4283163
 # define DOWN 4348699
@@ -30,6 +31,7 @@
 # define ESC 27
 # define BACKSPACE 127
 # define DELETE 2117294875
+# define E(x) env()->x
 
 typedef struct s_select
 {
@@ -38,6 +40,15 @@ typedef struct s_select
 	char hover;
 	struct s_select *next;
 }				t_select;
+
+typedef struct s_env
+{
+	int		fd;
+	struct 	termios old;
+	int		width;
+	int		height;
+	t_select **begin_list;
+}				t_env;
 
 /*
 ** Utils
@@ -51,9 +62,10 @@ int			list_len(t_select **begin_list);
 /*
 ** TERM
 */
-void		init_term(t_select **begin_list);
-int			get_fd();
-struct termios get_old_configuration(void);
+void			init_term(int sig);
+void			ft_resize(void);
+struct termios	get_old_configuration(void);
+t_env			*env(void);
 /*
 ** ACTIONS
 */

@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 17:35:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/23 18:41:33 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/24 01:40:19 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		move_top(t_select **begin_list)
 	}
 	tmp->hover = 0;
 	tmp2->hover = 1;
-	init_term(begin_list);
+	init_term(0);
 }
 
 void		move_bot(t_select **begin_list)
@@ -40,7 +40,7 @@ void		move_bot(t_select **begin_list)
 	tmp->hover = 0;
 	tmp = tmp->next;
 	tmp->hover = 1;
-	init_term(begin_list);
+	init_term(0);
 }
 
 void		selected(t_select **begin_list)
@@ -57,7 +57,7 @@ void		selected(t_select **begin_list)
 		tmp->selected = 1;
 	tmp = tmp->next;
 	tmp->hover = 1;
-	init_term(begin_list);
+	init_term(0);
 }
 
 void		return_selected(t_select **begin_list)
@@ -104,5 +104,5 @@ void del_elem(t_select **begin_list)
 	free(tmp);
 	tmp = tmp2->next;
 	tmp->hover = 1;
-	init_term(begin_list);
+	init_term(0);
 }

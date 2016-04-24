@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 23:38:26 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/24 00:19:26 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/24 02:35:29 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,34 @@
 
 void	ft_return(int sig)
 {
-	struct termios old;
-
-	old = get_old_configuration();
 	tputs(tgetstr("ve", NULL), 0, ft_outc);
-	tcsetattr(0, TCSADRAIN, &old);
+	tcsetattr(0, TCSADRAIN, &E(old));
+	close(E(fd));
 	exit(EXIT_SUCCESS);
+}
+
+void	ft_suspend(int sig)
+{
+	char get_out[2];
+
+	tputs(tgetstr("ve", NULL), 0, ft_outc);
+	tcsetattr(0, TCSADRAIN, &E(old));
+	signal(SIGTSTP, SIG_DFL);
+	get_out[0] = E(old).c_cc[VSUSP];
+	get_out[1] = '\0';
+	ioctl(0, TIOCSTI, get_out);
+}
+
+void	ft_append(int sig)
+{
+	signal(SIGTSTP, ft_suspend);
+	init_term(0);
+}
+
+void	ft_win(int sig)
+{
+	ft_resize();
+	init_term(sig);
 }
 
 void	signal_catcher()
@@ -27,11 +49,12 @@ void	signal_catcher()
 	int		i;
 
 	i = 0;
-//	signal(SIGCONT, sig_quit); // REPRISE CRTL Z
-//	signal(SIGWINCH, sig_quit); // taille fenetre
+	signal(SIGCONT, ft_append);
+	signal(SIGTSTP, ft_suspend);
+	signal(SIGWINCH, ft_win);
 	while (i < 32)
 	{
-		if (i != SIGCONT  && i != SIGWINCH)
+		if (i != SIGCONT && i != SIGWINCH && i != SIGTSTP)
 			signal(i, ft_return);
 		i++;
 	}
