@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 17:35:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/24 01:40:19 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/25 21:59:31 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void		return_selected(t_select **begin_list)
 	ft_return(0);
 }
 
-void del_elem(t_select **begin_list)
+void		del_elem(t_select **begin_list)
 {
 	t_select *tmp;
 	t_select *tmp2;

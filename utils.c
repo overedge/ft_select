@@ -6,18 +6,19 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:44:30 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/24 01:25:19 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/25 22:23:13 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_select.h"
 
-void error(char *str)
+void			error(char *str)
 {
 	ft_printf("%s\n", str);
-	ft_return(0);
+	exit(EXIT_FAILURE);
 }
 
-void arg_to_list(int argc, char **argv, t_select **begin_list)
+void			arg_to_list(int argc, char **argv, t_select **begin_list)
 {
 	t_select		*select;
 	int				i;
@@ -37,11 +38,10 @@ void arg_to_list(int argc, char **argv, t_select **begin_list)
 	}
 }
 
-void push_list_back(t_select **begin_list, char *name)
+void			push_list_back(t_select **begin_list, char *name)
 {
 	t_select *tmp;
 	t_select *new;
-	int			j;
 
 	tmp = *begin_list;
 	while (tmp->next != *begin_list)
@@ -54,7 +54,7 @@ void push_list_back(t_select **begin_list, char *name)
 	tmp->next = new;
 }
 
-int	list_len(t_select **begin_list)
+int				list_len(t_select **begin_list)
 {
 	int			i;
 	int			j;
@@ -72,7 +72,7 @@ int	list_len(t_select **begin_list)
 	return (i);
 }
 
-int		ft_outc(int c)
+int				ft_outc(int c)
 {
 	ft_putchar_fd(c, E(fd));
 	return (1);

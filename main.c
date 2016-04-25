@@ -6,25 +6,26 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 13:08:28 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/04/24 02:35:54 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/04/25 22:26:15 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_select.h"
 
-void	keyboard(t_select **begin_list, int keycode)
+void			keyboard(t_select **begin_list, int keycode)
 {
-		if (keycode == UP)
-			move_top(begin_list);
-		else if (keycode == DOWN)
-			move_bot(begin_list);
-		else if (keycode == SPACE)
-			selected(begin_list);
-		else if (keycode == ESC)
-			ft_return(0);
-		else if (keycode == RETURN)
-			return_selected(begin_list);
-		else if (keycode == DELETE || keycode == BACKSPACE)
-			del_elem(begin_list);
+	if (keycode == UP)
+		move_top(begin_list);
+	else if (keycode == DOWN)
+		move_bot(begin_list);
+	else if (keycode == SPACE)
+		selected(begin_list);
+	else if (keycode == ESC)
+		ft_return(0);
+	else if (keycode == RETURN)
+		return_selected(begin_list);
+	else if (keycode == DELETE || keycode == BACKSPACE)
+		del_elem(begin_list);
 }
 
 t_env			*env(void)
@@ -36,7 +37,7 @@ t_env			*env(void)
 	return (e);
 }
 
-int		main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	char				buffer[4];
 	int					keycode;
@@ -56,9 +57,9 @@ int		main(int argc, char **argv)
 	{
 		ft_bzero(&buffer, 4);
 		read(0, &buffer, 4);
-		keycode = (buffer[3] << 24) + (buffer[2] << 16) + (buffer[1] << 8) + buffer[0];
+		keycode = (buffer[3] << 24) + (buffer[2] << 16) + (buffer[1] << 8) + \
+			(buffer[0]);
 		keyboard(&begin_list, keycode);
 	}
 	return (0);
 }
-
