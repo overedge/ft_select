@@ -1,12 +1,12 @@
-# FDF
-![Image of Screen](https://github.com/overedge/FDF/blob/master/screen.png?raw=true)
+# FT_SELECT
+![Image of Screen](https://github.com/overedge/ft_select/blob/master/screen.png?raw=true)
 
 # Tested for mac user (El capitan realease)
 
 ### Installation
 ```sh
-$ git clone https://github.com/overedge/FDF FDF
-$ cd FDF
+$ git clone https://github.com/overedge/ft_select
+$ cd ft_select
 $ make
 $ make clean
 ```
@@ -22,5 +22,5 @@ $ ./ft_select [file1] [file2] [...]
 | MOVE  | ARROW ← ↑ →  |
 
 ### Result
-![Image of Result](https://github.com/overedge/FDF/blob/master/result.png?raw=true)
+![Image of Result](https://github.com/overedge/ft_select/blob/master/result.png?raw=true)
 
