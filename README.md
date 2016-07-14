@@ -1,6 +1,8 @@
 # FT_SELECT
 ![Image of Screen](https://github.com/overedge/ft_select/blob/master/screen.png?raw=true)
 
+A RESPONSIVE SELECT UI FOR TERM
+
 # Tested for mac user (El capitan realease)
 
 ### Installation
